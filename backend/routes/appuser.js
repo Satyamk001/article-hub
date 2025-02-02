@@ -36,6 +36,7 @@ router.post("/adduser", auth.authenticateToken, (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+  
   const user = req.body;
   const query = `select email, password , status, isDeletable  from appuser where email = ?`;
   db.query(query, [user.email], (err, result) => {
